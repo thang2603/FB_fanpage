@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Playwright
+playwright-report/
+blob-report/
+test-results/
+test-output/
+
+# Browser storage (login session)
+storage/
+profiles/
+
+# Screenshots & videos
+screenshots/
+videos/
+traces/
+trace.zip
+
+# Cache
+.cache/
+.temp/
+tmp/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
