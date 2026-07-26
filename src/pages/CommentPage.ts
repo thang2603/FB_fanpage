@@ -1,4 +1,5 @@
 import { type Page } from "playwright";
+import { PAGE_URL } from "../config/constants.js";
 
 const COMMENTS = [
   "Giá tốt quá",
@@ -16,6 +17,10 @@ function commentText(): string {
 
 export class CommentPage {
   constructor(private page: Page) {}
+  async run() {
+    await this.page.goto(PAGE_URL);
+    await this.postComment();
+  }
 
   async postComment() {
     const maxScrollAttempts = 2;

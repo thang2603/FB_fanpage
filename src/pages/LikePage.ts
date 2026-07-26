@@ -1,6 +1,11 @@
 import { type Page } from "playwright";
+import { PAGE_URL } from "../config/constants.js";
 export class LikePage {
   constructor(private page: Page) {}
+  async run() {
+    await this.page.goto(PAGE_URL);
+    await this.scrollToBottom();
+  }
   async scrollToBottom() {
     const maxScrollAttempts = 20;
     let checkCount = 0;

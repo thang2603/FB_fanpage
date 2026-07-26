@@ -10,19 +10,16 @@ async function main() {
 
   await browser.launch(STORAGE_PATH);
 
-  const loginPage = new LoginPage(browser.page);
-
-  await loginPage.open(PAGE_URL);
+  const likePage = new LikePage(browser.page);
+  await likePage.run();
 
   const commentPage = new CommentPage(browser.page);
-  await commentPage.postComment();
-  // const likePage = new LikePage(browser.page);
-  // await likePage.scrollToBottom();
+  await commentPage.run();
 
   // // Có thể tiếp tục gọi các Page khác
 
-  // await browser.page.waitForTimeout(5000);
-  // await browser.close();
+  await browser.page.waitForTimeout(5000);
+  await browser.close();
 }
 
 main();
