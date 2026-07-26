@@ -8,7 +8,7 @@ import {
 export class BrowserManager {
   public browser!: Browser;
   public context!: BrowserContext;
-  public page!: Page;
+  page!: Page;
 
   async launch(storageState?: string): Promise<void> {
     this.browser = await chromium.launch({ headless: false, slowMo: 100 });
@@ -21,6 +21,20 @@ export class BrowserManager {
       });
     }
     this.page = await this.context.newPage();
+  }
+
+  async launchPersistentContext() {
+    this.context = await chromium.launchPersistentContext(
+      "./profiles/facebook",
+      {
+        headless: false,
+        channel: "chrome",
+        // thao tác chậm giống người
+        slowMo: 200,
+      },
+    );
+
+    this.page = this.context.pages()[0] ?? (await this.context.newPage());
   }
 
   async close() {

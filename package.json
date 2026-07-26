@@ -7,7 +7,8 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsx src/main.ts"
+    "dev": "tsx src/main.ts",
+    "login": "tsx src/scripts/login.ts"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
